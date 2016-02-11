@@ -1,0 +1,37 @@
+{
+  "name": "ember-cli-htmlbars-minifier",
+  "version": "0.1.0",
+  "description": "Removes all whitespace in htmlbars templates",
+  "main": "index.js",
+  "author": "BBVAEngineering",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:BBVAEngineering/ember-cli-htmlbars-minifier.git"
+  },
+  "keywords": [
+    "ember-addon",
+    "minify",
+    "compress",
+    "htmlbars",
+    "htmlbars-minifier"
+  ],
+  "dependencies": {
+    "broccoli-filter": "^0.1.10"
+  },
+  "ember-addon": {
+    "before": [
+      "ember-cli-htmlbars"
+    ]
+  },
+  "maintainers": [
+    {
+      "name": "adrigzr",
+      "email": "a.gonzalezrus@gmail.com"
+    },
+    {
+      "name": "josex2r",
+      "email": "codex2r@gmail.com"
+    }
+  ]
+}
