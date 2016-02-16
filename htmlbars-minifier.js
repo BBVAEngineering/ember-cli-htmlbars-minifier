@@ -47,11 +47,7 @@ HtmlbarsMinifier.prototype.processString = function (str) {
 
         // Replaces:
         //   - "foo     " => "foo"
-        .replace(/\s+$/, '')
-
-        // Replaces:
-        //   - "<foo>{{bar}}            {{bar}}</foo>" => "<foo>{{bar}}{{bar}}</foo>"
-        .replace(/(<.+?>[^<>]*?}})(\s+)({{[^<>]*?<.+?>)/g, '$1$3');
+        .replace(/\s+$/, '');
 
     return str;
 };
