@@ -16,6 +16,18 @@ HtmlbarsMinifier.prototype.constructor = HtmlbarsMinifier;
 HtmlbarsMinifier.prototype.extensions = ['hbs'];
 HtmlbarsMinifier.prototype.targetExtension = 'hbs';
 HtmlbarsMinifier.prototype.processString = function (str) {
+    if (this.options.stripIndentation){
+        // Replaces:
+        //   - "     foo" => "foo"
+        str = str.replace(/^(\t|\s)+/mg, '');
+    }
+
+    if (this.options.removeTrailingSpaces){
+        // Replaces:
+        //   - "foo     " => "foo"
+        str = str.replace(/\s+$/mg, '');
+    }
+
     if (this.options.removeSpacesAroundTags){
         str = str
             // Replaces:
@@ -38,24 +50,6 @@ HtmlbarsMinifier.prototype.processString = function (str) {
             // Replaces:
             //   - ">      {{" => ">{{"
             .replace(/>\s+{{/g, '>{{')
-    }
-
-    if (this.options.coalesceSpaces){
-        // Replaces:
-        //   - ">           foo" => "> foo"
-        str = str.replace(/\s{2,}/g, ' ');
-    }
-
-    if (this.options.stripIndentation){
-        // Replaces:
-        //   - "     foo" => "foo"
-        str = str.replace(/^\s+/mg, '');
-    }
-
-    if (this.options.removeTrailingSpaces){
-        // Replaces:
-        //   - "foo     " => "foo"
-        str = str.replace(/\s+$/mg, '');
     }
 
     if (this.options.stripNewlines){
@@ -85,6 +79,12 @@ HtmlbarsMinifier.prototype.processString = function (str) {
             //   - "foo
             //      {{helper}}" => "foo{{helper}}"
             .replace(/[\r\n]+(\s*{{)/g, '$1')
+    }
+
+    if (this.options.coalesceSpaces){
+        // Replaces:
+        //   - ">           foo" => "> foo"
+        str = str.replace(/\s{2,}/g, ' ');
     }
 
     return str;
