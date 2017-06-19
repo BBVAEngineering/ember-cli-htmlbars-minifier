@@ -49,13 +49,13 @@ HtmlbarsMinifier.prototype.processString = function (str) {
     if (this.options.stripIndentation){
         // Replaces:
         //   - "     foo" => "foo"
-        str = str.replace(/^\s+/, '');
+        str = str.replace(/^\s+/mg, '');
     }
 
     if (this.options.removeTrailingSpaces){
         // Replaces:
         //   - "foo     " => "foo"
-        str = str.replace(/\s+$/, '');
+        str = str.replace(/\s+$/mg, '');
     }
 
     if (this.options.stripNewlines){
