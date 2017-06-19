@@ -5,6 +5,10 @@ module.exports = {
 
     initializeOptions: function(appOptions) {
         var defaultOptions = {
+            stripIndentation: true,
+            removeTrailingSpaces: true,
+            coalesceSpaces: true,
+            removeSpacesAroundTags: true,
         };
 
         this.options = appOptions["ember-cli-htmlbars-minifier"] || {};
