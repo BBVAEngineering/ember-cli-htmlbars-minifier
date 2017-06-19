@@ -58,6 +58,35 @@ HtmlbarsMinifier.prototype.processString = function (str) {
         str = str.replace(/\s+$/, '');
     }
 
+    if (this.options.stripNewlines){
+        str = str
+            // Replaces:
+            //   - "<div>
+            //      foo</div>" => "<div>foo</div>"
+            .replace(/(>\s*)[\r\n]+/g, '$1')
+
+            // Replaces:
+            //   - "{{#block}}
+            //      foo{{/block}}" => "{{#block}}foo{{/block}}"
+            //   - "{{helper}}
+            //      foo" => "{{helper}}foo"
+            .replace(/(}}\s*)[\r\n]+/g, '$1')
+
+            // Replaces:
+            //   - "<div>foo
+            //      </div>" => "<div>foo</div>"
+            //   - "foo
+            //      </br>" => "foo</br>"
+            .replace(/[\r\n]+(\s*<)/g, '$1')
+
+            // Replaces:
+            //   - "{{#block}}foo
+            //      {{/block}}" => "{{#block}}foo{{/block}}"
+            //   - "foo
+            //      {{helper}}" => "foo{{helper}}"
+            .replace(/[\r\n]+(\s*{{)/g, '$1')
+    }
+
     return str;
 };
 

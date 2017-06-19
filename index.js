@@ -9,6 +9,7 @@ module.exports = {
             removeTrailingSpaces: true,
             coalesceSpaces: true,
             removeSpacesAroundTags: true,
+            stripNewlines: true,
         };
 
         this.options = appOptions["ember-cli-htmlbars-minifier"] || {};
