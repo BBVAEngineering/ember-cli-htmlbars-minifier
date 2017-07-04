@@ -64,7 +64,8 @@ HtmlbarsMinifier.prototype.processString = function (str) {
             //      foo{{/block}}" => "{{#block}}foo{{/block}}"
             //   - "{{helper}}
             //      foo" => "{{helper}}foo"
-            .replace(/(}}\s*)[\r\n]+/g, '$1')
+            //  This should ignore newlines inside of an opening or self-closing tag
+            .replace(/(}}\s*)[\r\n]+(?![^<]*>)/g, '$1')
 
             // Replaces:
             //   - "<div>foo
@@ -78,7 +79,8 @@ HtmlbarsMinifier.prototype.processString = function (str) {
             //      {{/block}}" => "{{#block}}foo{{/block}}"
             //   - "foo
             //      {{helper}}" => "foo{{helper}}"
-            .replace(/[\r\n]+(\s*{{)/g, '$1')
+            //  This should ignore newlines inside of an opening or self-closing tag
+            .replace(/(?![^<]*>)[\r\n]+(\s*{{)/g, '$1')
     }
 
     if (this.options.coalesceSpaces){
