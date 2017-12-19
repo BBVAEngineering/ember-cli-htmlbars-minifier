@@ -10,7 +10,7 @@ const minifier = new HTMLBarsMinifier('foo', {
 
 describe('stripIndentation', () => {
 	describe('from a text node', () => {
-		it('should remove consecutive spaces after a word', () => {
+		it('should remove consecutive spaces before a text node', () => {
 			const input = '    foo';
 
 			assert.equal(
@@ -19,7 +19,7 @@ describe('stripIndentation', () => {
 			);
 		});
 
-		it('should remove consecutive tabs after a word', () => {
+		it('should remove consecutive tabs after a text node', () => {
 			const input = '			foo';
 
 			assert.equal(
@@ -28,7 +28,7 @@ describe('stripIndentation', () => {
 			);
 		});
 
-		it('should remove consecutive spaces and tabs after a word', () => {
+		it('should remove consecutive spaces and tabs after a text node', () => {
 			const input = '				foo';
 
 			assert.equal(
@@ -39,7 +39,7 @@ describe('stripIndentation', () => {
 	});
 
 	describe('from a DOM element', () => {
-		it('should remove consecutive spaces after a word', () => {
+		it('should remove consecutive spaces before a DOM element', () => {
 			const input = '    <b>foo</b>';
 
 			assert.equal(
@@ -48,7 +48,7 @@ describe('stripIndentation', () => {
 			);
 		});
 
-		it('should remove consecutive tabs after a word', () => {
+		it('should remove consecutive tabs after a DOM element', () => {
 			const input = '			<b>foo</b>';
 
 			assert.equal(
@@ -57,7 +57,7 @@ describe('stripIndentation', () => {
 			);
 		});
 
-		it('should remove consecutive spaces and tabs after a word', () => {
+		it('should remove consecutive spaces and tabs after a DOM element', () => {
 			const input = '				<b>foo</b>';
 
 			assert.equal(
@@ -69,7 +69,7 @@ describe('stripIndentation', () => {
 
 
 	describe('from a HTMLBars element', () => {
-		it('should remove consecutive spaces after a word', () => {
+		it('should remove consecutive spaces before an HTMLBars node', () => {
 			const input = '    {{foo}}';
 
 			assert.equal(
@@ -78,7 +78,7 @@ describe('stripIndentation', () => {
 			);
 		});
 
-		it('should remove consecutive tabs after a word', () => {
+		it('should remove consecutive tabs after an HTMLBars node', () => {
 			const input = '			{{foo}}';
 
 			assert.equal(
@@ -87,7 +87,7 @@ describe('stripIndentation', () => {
 			);
 		});
 
-		it('should remove consecutive spaces and tabs after a word', () => {
+		it('should remove consecutive spaces and tabs after an HTMLBars node', () => {
 			const input = '				{{foo}}';
 
 			assert.equal(

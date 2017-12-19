@@ -36,7 +36,7 @@ describe('removeSpacesAroundTags', () => {
 		);
 	});
 
-	it('should remove whitespaces between an HTMLBars node and a DOM element', () => {
+	it('should remove whitespaces between a DOM element and an HTMLBars node', () => {
 		const input = '<a>    {{foo}}';
 
 		assert.equal(
@@ -45,7 +45,7 @@ describe('removeSpacesAroundTags', () => {
 		);
 	});
 
-	it('should remove whitespaces between a DOM element and an HTMLBars node ', () => {
+	it('should remove whitespaces between an HTMLBars node and a DOM element', () => {
 		const input = '{{foo}}    <a>';
 
 		assert.equal(
