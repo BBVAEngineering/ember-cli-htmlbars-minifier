@@ -9,14 +9,30 @@ const minifier = new HTMLBarsMinifier('foo', {
 });
 
 describe('coalesceSpaces', () => {
-	describe('from a text node', () => {
-		it('should coalesce consecutive spaces', () => {
-			const input = '    ';
+	it('should coalesce consecutive spaces', () => {
+		const input = '    ';
 
-			assert.equal(
-				minifier.processString(input),
-				' '
-			);
-		});
+		assert.equal(
+			minifier.processString(input),
+			' '
+		);
+	});
+
+	it('should coalesce consecutive spaces inside a DOM element', () => {
+		const input = '<b>    </b>';
+
+		assert.equal(
+			minifier.processString(input),
+			'<b> </b>'
+		);
+	});
+
+	it('should coalesce consecutive spaces around a DOM element', () => {
+		const input = '    <b></b>    ';
+
+		assert.equal(
+			minifier.processString(input),
+			' <b></b> '
+		);
 	});
 });
