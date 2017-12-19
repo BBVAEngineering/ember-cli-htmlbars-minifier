@@ -1,0 +1,27 @@
+---
+language: node_js
+dist: trusty
+node_js:
+  - "6"
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.yarn-cache
+    - $HOME/.cache  # includes bowers cache
+
+matrix:
+  fast_finish: true
+
+before_install:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - npm config set spin false
+  - yarn --version
+
+install:
+  - yarn install
+
+script:
+  - npm test
