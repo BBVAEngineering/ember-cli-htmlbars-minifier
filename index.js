@@ -1,4 +1,4 @@
-var HtmlbarsMinifier = require('./htmlbars-minifier');
+var HtmlbarsMinifier = require('./lib/htmlbars-minifier');
 
 module.exports = {
     name: 'ember-cli-htmlbars-minifier',

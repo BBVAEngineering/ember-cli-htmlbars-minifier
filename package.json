@@ -9,6 +9,9 @@
     "type": "git",
     "url": "git@github.com:BBVAEngineering/ember-cli-htmlbars-minifier.git"
   },
+  "scripts": {
+    "test": "node_modules/.bin/mocha --recursive tests"
+  },
   "keywords": [
     "ember-addon",
     "minify",
@@ -33,5 +36,9 @@
       "name": "josex2r",
       "email": "codex2r@gmail.com"
     }
-  ]
+  ],
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
 }
