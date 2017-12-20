@@ -13,7 +13,7 @@ npm install ember-cli-htmlbars-minifier --save-dev
 You can choose not to remove certain kinds of whitespace using config options that you can add to your `ember-cli-build.js`. If not specified, they *default* to **true.**
 
 ```
-"ember-cli-htmlbars-minifier": {
+"htmlbarsMinifier": {
     stripIndentation:       true,
     removeTrailingSpaces:   true,
     removeSpacesAroundTags: true,
@@ -21,6 +21,7 @@ You can choose not to remove certain kinds of whitespace using config options th
     coalesceSpaces:         true
 }
 ```
+
 Config Option | Description |
 --- | --- |
 |stripIndentation        | Remove any consecutive sets of tabs or spaces from the beginning of each line.

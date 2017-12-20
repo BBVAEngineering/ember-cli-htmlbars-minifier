@@ -1,38 +1,29 @@
-var HtmlbarsMinifier = require('./lib/htmlbars-minifier');
+const HtmlbarsMinifier = require('./lib/htmlbars-minifier');
+
+const DEFAULTS = {
+	stripIndentation: true,
+	removeTrailingSpaces: true,
+	coalesceSpaces: true,
+	removeSpacesAroundTags: true,
+	stripNewlines: true,
+};
 
 module.exports = {
 	name: 'ember-cli-htmlbars-minifier',
 
-	initializeOptions: function(appOptions) {
-		var defaultOptions = {
-			stripIndentation: true,
-			removeTrailingSpaces: true,
-			coalesceSpaces: true,
-			removeSpacesAroundTags: true,
-			stripNewlines: true,
-		};
-
-		this.options = appOptions['ember-cli-htmlbars-minifier'] || {};
-		for (var option in defaultOptions) {
-			if (!this.options.hasOwnProperty(option)) {
-				this.options[option] = defaultOptions[option];
-			}
-		}
+	_getOptions(projectConfig) {
+		return Object.assign({}, DEFAULTS, projectConfig['htmlbarsMinifier'] || {});
 	},
-	included: function(app) {
-		this._super.included.apply(this, arguments);
 
-		this.initializeOptions(app.options);
-	},
-	setupPreprocessorRegistry: function(type, registry) {
-		var self = this;
+	setupPreprocessorRegistry(type, registry) {
+		const self = this;
+		const projectConfig = this.project.config();
+		const options = this._getOptions(projectConfig);
 
 		registry.add('template', {
 			name: 'ember-cli-htmlbars-minifier',
 			ext: 'hbs',
-			toTree: function(tree) {
-				return HtmlbarsMinifier(tree, this.options);
-			}
+			toTree: (tree) => HtmlbarsMinifier(tree, options)
 		});
 	}
 };
