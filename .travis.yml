@@ -2,14 +2,18 @@
 language: node_js
 dist: trusty
 node_js:
-  - "6"
+  - "stable"
 
 sudo: false
 
+addons:
+  chrome: stable
+
 cache:
   directories:
-    - $HOME/.yarn-cache
+    - $HOME/.npm
     - $HOME/.cache  # includes bowers cache
+    - node_modules
 
 matrix:
   fast_finish: true
@@ -18,10 +22,11 @@ before_install:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - npm config set spin false
-  - yarn --version
+  - npm install -g npm@^5.7
+  - npm --version
 
 install:
-  - yarn install
+  - npm ci
 
 script:
   - npm test
