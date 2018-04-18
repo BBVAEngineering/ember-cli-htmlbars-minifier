@@ -5,18 +5,17 @@ const DEFAULTS = {
 	removeTrailingSpaces: true,
 	coalesceSpaces: true,
 	removeSpacesAroundTags: true,
-	stripNewlines: true,
+	stripNewlines: true
 };
 
 module.exports = {
 	name: 'ember-cli-htmlbars-minifier',
 
 	_getOptions(projectConfig) {
-		return Object.assign({}, DEFAULTS, projectConfig['htmlbarsMinifier'] || {});
+		return Object.assign({}, DEFAULTS, projectConfig.htmlbarsMinifier || {});
 	},
 
 	setupPreprocessorRegistry(type, registry) {
-		const self = this;
 		const projectConfig = this.project.config();
 		const options = this._getOptions(projectConfig);
 
