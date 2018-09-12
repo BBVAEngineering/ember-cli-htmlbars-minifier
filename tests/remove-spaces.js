@@ -1,7 +1,6 @@
 'use strict';
 
 const assert = require('assert');
-const expect = require('chai').expect;
 const HTMLBarsMinifier = require('../lib/htmlbars-minifier');
 
 const minifier = new HTMLBarsMinifier('foo', {
