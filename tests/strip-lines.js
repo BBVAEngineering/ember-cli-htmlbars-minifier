@@ -16,7 +16,7 @@ describe('stripNewlines', () => {
 	foo
 </div>`;
 
-		assert.equal(
+		assert.strictEqual(
 			minifier.processString(input),
 			'<div>foo</div>'
 		);
@@ -27,7 +27,7 @@ describe('stripNewlines', () => {
 `{{foo}}
 	bar`;
 
-		assert.equal(
+		assert.strictEqual(
 			minifier.processString(input),
 			'{{foo}}bar'
 		);
@@ -39,7 +39,7 @@ describe('stripNewlines', () => {
 	bar
 {{/foo}}`;
 
-		assert.equal(
+		assert.strictEqual(
 			minifier.processString(input),
 			'{{#foo}}bar{{/foo}}'
 		);

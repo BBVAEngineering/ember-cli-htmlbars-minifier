@@ -11,7 +11,7 @@ describe('removeSpacesAroundTags', () => {
 	it('should escape special chars', () => {
 		const input = '{{#foo}}{{/foo}}';
 
-		assert.equal(
+		assert.strictEqual(
 			minifier.processString(input),
 			'{{~#foo}}{{~/foo}}'
 		);
@@ -20,7 +20,7 @@ describe('removeSpacesAroundTags', () => {
 	it('should remove whitespaces before a DOM element', () => {
 		const input = 'foo    <a>';
 
-		assert.equal(
+		assert.strictEqual(
 			minifier.processString(input),
 			'foo<a>'
 		);
@@ -29,7 +29,7 @@ describe('removeSpacesAroundTags', () => {
 	it('should remove whitespaces after a DOM element', () => {
 		const input = '<a>    foo';
 
-		assert.equal(
+		assert.strictEqual(
 			minifier.processString(input),
 			'<a>foo'
 		);
@@ -38,7 +38,7 @@ describe('removeSpacesAroundTags', () => {
 	it('should remove whitespaces between a DOM element and an HTMLBars node', () => {
 		const input = '<a>    {{foo}}';
 
-		assert.equal(
+		assert.strictEqual(
 			minifier.processString(input),
 			'<a>{{foo}}'
 		);
@@ -47,7 +47,7 @@ describe('removeSpacesAroundTags', () => {
 	it('should remove whitespaces between an HTMLBars node and a DOM element', () => {
 		const input = '{{foo}}    <a>';
 
-		assert.equal(
+		assert.strictEqual(
 			minifier.processString(input),
 			'{{foo}}<a>'
 		);
