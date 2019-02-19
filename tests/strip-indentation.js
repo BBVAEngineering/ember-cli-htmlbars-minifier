@@ -12,7 +12,7 @@ describe('stripIndentation', () => {
 		it('should remove consecutive spaces before a text node', () => {
 			const input = '    foo';
 
-			assert.equal(
+			assert.strictEqual(
 				minifier.processString(input),
 				'foo'
 			);
@@ -21,7 +21,7 @@ describe('stripIndentation', () => {
 		it('should remove consecutive tabs after a text node', () => {
 			const input = '			foo';
 
-			assert.equal(
+			assert.strictEqual(
 				minifier.processString(input),
 				'foo'
 			);
@@ -30,7 +30,7 @@ describe('stripIndentation', () => {
 		it('should remove consecutive spaces and tabs after a text node', () => {
 			const input = '				foo';
 
-			assert.equal(
+			assert.strictEqual(
 				minifier.processString(input),
 				'foo'
 			);
@@ -41,7 +41,7 @@ describe('stripIndentation', () => {
 		it('should remove consecutive spaces before a DOM element', () => {
 			const input = '    <b>foo</b>';
 
-			assert.equal(
+			assert.strictEqual(
 				minifier.processString(input),
 				'<b>foo</b>'
 			);
@@ -50,7 +50,7 @@ describe('stripIndentation', () => {
 		it('should remove consecutive tabs after a DOM element', () => {
 			const input = '			<b>foo</b>';
 
-			assert.equal(
+			assert.strictEqual(
 				minifier.processString(input),
 				'<b>foo</b>'
 			);
@@ -59,7 +59,7 @@ describe('stripIndentation', () => {
 		it('should remove consecutive spaces and tabs after a DOM element', () => {
 			const input = '				<b>foo</b>';
 
-			assert.equal(
+			assert.strictEqual(
 				minifier.processString(input),
 				'<b>foo</b>'
 			);
@@ -71,7 +71,7 @@ describe('stripIndentation', () => {
 		it('should remove consecutive spaces before an HTMLBars node', () => {
 			const input = '    {{foo}}';
 
-			assert.equal(
+			assert.strictEqual(
 				minifier.processString(input),
 				'{{foo}}'
 			);
@@ -80,7 +80,7 @@ describe('stripIndentation', () => {
 		it('should remove consecutive tabs after an HTMLBars node', () => {
 			const input = '			{{foo}}';
 
-			assert.equal(
+			assert.strictEqual(
 				minifier.processString(input),
 				'{{foo}}'
 			);
@@ -89,7 +89,7 @@ describe('stripIndentation', () => {
 		it('should remove consecutive spaces and tabs after an HTMLBars node', () => {
 			const input = '				{{foo}}';
 
-			assert.equal(
+			assert.strictEqual(
 				minifier.processString(input),
 				'{{foo}}'
 			);

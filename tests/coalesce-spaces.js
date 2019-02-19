@@ -11,7 +11,7 @@ describe('coalesceSpaces', () => {
 	it('should coalesce consecutive spaces', () => {
 		const input = '    ';
 
-		assert.equal(
+		assert.strictEqual(
 			minifier.processString(input),
 			' '
 		);
@@ -20,7 +20,7 @@ describe('coalesceSpaces', () => {
 	it('should coalesce consecutive spaces inside a DOM element', () => {
 		const input = '<b>    </b>';
 
-		assert.equal(
+		assert.strictEqual(
 			minifier.processString(input),
 			'<b> </b>'
 		);
@@ -29,7 +29,7 @@ describe('coalesceSpaces', () => {
 	it('should coalesce consecutive spaces around a DOM element', () => {
 		const input = '    <b></b>    ';
 
-		assert.equal(
+		assert.strictEqual(
 			minifier.processString(input),
 			' <b></b> '
 		);
