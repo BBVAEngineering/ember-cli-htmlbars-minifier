@@ -1,15 +1,18 @@
 # ember-cli-htmlbars-minifier
 
 [![Build Status](https://travis-ci.org/BBVAEngineering/ember-cli-htmlbars-minifier.svg?branch=master)](https://travis-ci.org/BBVAEngineering/ember-cli-htmlbars-minifier)
-[![npm version](https://badge.fury.io/js/ember-cli-htmlbars-minifier.svg)](https://badge.fury.io/js/ember-cli-htmlbars-minifier)
 [![GitHub version](https://badge.fury.io/gh/BBVAEngineering%2Fember-cli-htmlbars-minifier.svg)](https://badge.fury.io/gh/BBVAEngineering%2Fember-cli-htmlbars-minifier)
+[![NPM version](https://badge.fury.io/js/ember-cli-htmlbars-minifier.svg)](https://badge.fury.io/js/ember-cli-htmlbars-minifier)
 [![Dependency Status](https://david-dm.org/BBVAEngineering/ember-cli-htmlbars-minifier.svg)](https://david-dm.org/BBVAEngineering/ember-cli-htmlbars-minifier)
-
-Removes all whitespace in htmlbars templates.
+[![codecov](https://codecov.io/gh/BBVAEngineering/ember-cli-htmlbars-minifier/branch/master/graph/badge.svg)](https://codecov.io/gh/BBVAEngineering/ember-cli-htmlbars-minifier)
+[![Greenkeeper badge](https://badges.greenkeeper.io/BBVAEngineering/ember-cli-htmlbars-minifier.svg)](https://greenkeeper.io/)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-cli-htmlbars-minifier.svg)](https://emberobserver.com/addons/ember-cli-htmlbars-minifier)
 
 ## Information
 
-[![NPM](https://nodei.co/npm/ember-cli-htmlbars-minifier.png?downloads=true&downloadRank=true)](https://www.npmjs.com/package/ember-cli-htmlbars-minifier)
+[![NPM](https://nodei.co/npm/ember-cli-htmlbars-minifier.png?downloads=true&downloadRank=true)](https://nodei.co/npm/ember-cli-htmlbars-minifier/)
+
+Removes all whitespace in htmlbars templates.
 
 ## Install in ember-cli application
 
