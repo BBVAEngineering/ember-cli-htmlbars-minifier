@@ -17,15 +17,6 @@ describe('removeSpacesAroundTags', () => {
 		);
 	});
 
-	it('should remove whitespaces before a DOM element', () => {
-		const input = 'foo    <a>';
-
-		assert.strictEqual(
-			minifier.processString(input),
-			'foo<a>'
-		);
-	});
-
 	it('should remove whitespaces after a DOM element', () => {
 		const input = '<a>    foo';
 
@@ -35,12 +26,12 @@ describe('removeSpacesAroundTags', () => {
 		);
 	});
 
-	it('should remove whitespaces between a DOM element and an HTMLBars node', () => {
-		const input = '<a>    {{foo}}';
+	it('should remove whitespaces before a DOM element', () => {
+		const input = 'foo    <a>';
 
 		assert.strictEqual(
 			minifier.processString(input),
-			'<a>{{foo}}'
+			'foo<a>'
 		);
 	});
 
@@ -50,6 +41,15 @@ describe('removeSpacesAroundTags', () => {
 		assert.strictEqual(
 			minifier.processString(input),
 			'{{foo}}<a>'
+		);
+	});
+
+	it('should remove whitespaces between a DOM element and an HTMLBars node', () => {
+		const input = '<a>    {{foo}}';
+
+		assert.strictEqual(
+			minifier.processString(input),
+			'<a>{{foo}}'
 		);
 	});
 });

@@ -3,8 +3,8 @@
 module.exports = {
 	extends: 'recommended',
 	rules: {
-		'no-bare-strings': true,
-		'block-indentation': 'tab',
+		'no-bare-strings': false,
+		'block-indentation': false,
 		'no-html-comments': true,
 		'no-nested-interactive': true,
 		'self-closing-void-elements': true,
