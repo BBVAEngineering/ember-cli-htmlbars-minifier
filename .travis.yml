@@ -43,7 +43,7 @@ jobs:
         - codecov --file=coveragelcov.info
 
     - stage: "Regression Tests Node"
-      script: - npm run test
+      script: npm run test
       node_js: "lts/carbon"
     - node_js: "lts/dubnium"
 
