@@ -27,8 +27,8 @@ module.exports = {
 			'testem.js',
 			'blueprints/*/index.js',
 			'config/**/*.js',
+			'node-tests/**/*.js',
 			'lib/**/*.js',
-			'tests/**/*.js',
 			'tests/dummy/config/**/*.js'
 		],
 		excludedFiles: [

@@ -1,0 +1,56 @@
+<span id="stripIndentation">
+	foo
+</span>
+
+{{! ------------------- }}
+
+<span id="removeTrailingSpaces">foo    </span>
+
+{{! ------------------- }}
+
+<span id="removeSpacesAroundTags-1">
+	{{#each dataForRemoveSpacesAroundTags as |nav|}}
+		<a href={{nav.url}}>
+			{{#if nav.test}}
+				{{nav.title}}
+			{{else}}
+				Empty
+			{{/if}}
+		</a>
+	{{/each}}
+</span>
+
+<span id="removeSpacesAroundTags-2">
+	<span>           foo</span>
+</span>
+
+<span id="removeSpacesAroundTags-3">
+	<span>foo           </span>
+</span>
+
+<span id="removeSpacesAroundTags-4">
+	Hello{{#unless foo}}      <b>World</b>{{/unless}}
+</span>
+
+<span id="removeSpacesAroundTags-5">
+	<b>Hello</b>      {{#unless foo}}World{{/unless}}
+</span>
+
+{{! ------------------- }}
+
+<span id="stripNewlines-1">
+	<div>
+		foo
+	</div>
+</span>
+
+<span id="stripNewlines-2">
+	<b>{{#unless foo}}
+	Hello{{/unless}}</b>
+</span>
+
+{{! ------------------- }}
+
+<span id="coalesceSpaces">
+<b>           foo</b>
+</span>

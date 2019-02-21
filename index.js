@@ -1,4 +1,5 @@
 const HtmlbarsMinifier = require('./lib/htmlbars-minifier');
+const packageName = require('./package').name;
 
 const DEFAULTS = {
 	stripIndentation: true,
@@ -9,7 +10,7 @@ const DEFAULTS = {
 };
 
 module.exports = {
-	name: 'ember-cli-htmlbars-minifier',
+	name: packageName,
 
 	_getOptions(projectConfig) {
 		return Object.assign({}, DEFAULTS, projectConfig.htmlbarsMinifier || {});
@@ -20,7 +21,7 @@ module.exports = {
 		const options = this._getOptions(projectConfig);
 
 		registry.add('template', {
-			name: 'ember-cli-htmlbars-minifier',
+			name: packageName,
 			ext: 'hbs',
 			toTree: (tree) => HtmlbarsMinifier(tree, options)
 		});
