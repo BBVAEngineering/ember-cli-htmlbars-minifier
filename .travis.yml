@@ -15,14 +15,10 @@ env:
   global:
     - JOBS=1
 
-stages:
-  - "Tests"
-  - "Regression Tests"
-  - name: "Release"
-    if: branch = master
-
 jobs:
   fail_fast: true
+  allow_failures:
+    - env: EMBER_TRY_SCENARIO=ember-canary
 
   include:
     - stage: "Tests"
@@ -46,9 +42,16 @@ jobs:
       after_success:
         - codecov --file=coveragelcov.info
 
-    - stage: "Regression Tests"
+    - stage: "Regression Tests Node"
+      script: - npm run test
       node_js: "lts/carbon"
     - node_js: "lts/dubnium"
+
+    - stage: "Regression Tests Ember"
+      env: EMBER_TRY_SCENARIO=ember-release
+    - env: EMBER_TRY_SCENARIO=ember-beta
+    - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
 
     - stage: "Release"
       script: skip
@@ -66,4 +69,11 @@ before_install:
   - npm --version
 
 script:
-  - npm run test
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+
+stages:
+  - "Tests"
+  - "Regression Tests Node"
+  - "Regression Tests Ember"
+  - name: "Release"
+    if: branch = master
