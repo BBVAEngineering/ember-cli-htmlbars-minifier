@@ -15,10 +15,14 @@ env:
   global:
     - JOBS=1
 
+stages:
+  - "Tests"
+  - "Regression Tests"
+  - name: "Release"
+    if: branch = master
+
 jobs:
   fail_fast: true
-  allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-canary
 
   include:
     - stage: "Tests"
@@ -36,20 +40,15 @@ jobs:
       script:
         - commitlint-travis
         - npm run lint:js
-        - npm run lint:hbs
         - npm test
       after_script:
         - greenkeeper-lockfile-upload
       after_success:
         - codecov --file=coverage/lcov.info
 
-    #- stage: "Regression Tests"
-    #  env: EMBER_TRY_SCENARIO=ember-lts-2.18
-    #- env: EMBER_TRY_SCENARIO=ember-lts-3.4
-    #- env: EMBER_TRY_SCENARIO=ember-release
-    #- env: EMBER_TRY_SCENARIO=ember-beta
-    #- env: EMBER_TRY_SCENARIO=ember-canary
-    #- env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+    - stage: "Regression Tests"
+      node_js: "lts/carbon"
+    - node_js: "lts/dubnium"
 
     - stage: "Release"
       script: skip
@@ -61,17 +60,10 @@ jobs:
         script:
           - npx semantic-release
 
-#before_install:
-#  - npm config set spin false
-#  - npm install -g npm@6
-#  - npm --version
+before_install:
+  - npm config set spin false
+  - npm install -g npm@6
+  - npm --version
 
-#script:
-#  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
-
-stages:
-  - "Tests"
-  #- "Regression Tests"
-  - name: "Release"
-    if: branch = master
-
+script:
+  - npm run test
