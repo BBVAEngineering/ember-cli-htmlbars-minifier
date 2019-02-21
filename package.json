@@ -15,7 +15,7 @@
     "check": "node_modules/.bin/check-dependencies",
     "pretest": "npm run check && npm run lint:js",
     "test": "npm run clean-coverage && npm run test:node",
-    "test:node": "nyc --reporter=html --reporter=json --reporter=json-summary --reporter=lcov --report-dir coverage --exclude tests && npm run mocha",
+    "test:node": "nyc --reporter=html --reporter=json --reporter=json-summary --reporter=lcov --report-dir coverage --exclude tests npm run mocha",
     "mocha": "node_modules/.bin/mocha --recursive tests",
     "check-coverage": "istanbul check-coverage coverage/coverage-final.json --statements 95 --functions 100 --branches 85 --lines 95",
     "clean-coverage": "rm -rf coverage",
