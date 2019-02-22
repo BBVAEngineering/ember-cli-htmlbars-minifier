@@ -1,5 +1,6 @@
 ---
 language: node_js
+node_js: stable
 sudo: false
 dist: trusty
 
@@ -10,16 +11,9 @@ cache:
   directories:
     - $HOME/.npm
 
-node_js:
-  - "lts/carbon"
-  - "lts/dubnium"
-  - stable
-
 env:
-  - env: EMBER_TRY_SCENARIO=ember-release
-  - env: EMBER_TRY_SCENARIO=ember-beta
-  - env: EMBER_TRY_SCENARIO=ember-canary
-  - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+  global:
+    - JOBS=1
 
 jobs:
   fail_fast: true
@@ -27,8 +21,7 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
   include:
-    - stage: "Smoke Tests"
-      node_js: stable
+    - stage: "Tests"
       before_install:
         - npm config set spin false
         - npm install -g npm@6
@@ -43,14 +36,22 @@ jobs:
       script:
         - commitlint-travis
         - npm run lint:js
+        - npm run lint:hbs
         - npm test
       after_script:
         - greenkeeper-lockfile-upload
       after_success:
-        - codecov --file=coveragelcov.info
+        - codecov --file=coverage/lcov.info
+
+    - stage: "Regression Tests"
+      env: EMBER_TRY_SCENARIO=ember-lts-2.18
+    - env: EMBER_TRY_SCENARIO=ember-lts-3.4
+    - env: EMBER_TRY_SCENARIO=ember-release
+    - env: EMBER_TRY_SCENARIO=ember-beta
+    - env: EMBER_TRY_SCENARIO=ember-canary
+    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
 
     - stage: "Release"
-      node_js: stable
       script: skip
       deploy:
         provider: script
@@ -66,11 +67,11 @@ before_install:
   - npm --version
 
 script:
-  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
-  - npm run test:node
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
 
 stages:
-  - "Smoke Tests"
-  - test
+  - "Tests"
+  - "Regression Tests"
   - name: "Release"
     if: branch = master
+
