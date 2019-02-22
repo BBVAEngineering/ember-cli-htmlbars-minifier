@@ -1,6 +1,5 @@
 ---
 language: node_js
-node_js: stable
 sudo: false
 dist: trusty
 
@@ -11,14 +10,20 @@ cache:
   directories:
     - $HOME/.npm
 
-env:
-  global:
-    - JOBS=1
+node_js:
+  - "lts/carbon"
+  - "lts/dubnium"
+  - stable
 
-before_install:
-  - npm config set spin false
-  - npm install -g npm@6
-  - npm --version
+env:
+  - env: EMBER_TRY_SCENARIO=ember-release
+  - env: EMBER_TRY_SCENARIO=ember-beta
+  - env: EMBER_TRY_SCENARIO=ember-canary
+  - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
+
+                                                                env:
+                                                                  global:
+                                                                    - JOBS=1
 
 jobs:
   fail_fast: true
@@ -26,7 +31,8 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
   include:
-    - stage: "Tests"
+    - stage: "Smoke Tests"
+      node_js: stable
       before_install:
         - npm config set spin false
         - npm install -g npm@6
@@ -47,22 +53,8 @@ jobs:
       after_success:
         - codecov --file=coveragelcov.info
 
-    - stage: "Regression Tests Node"
-      script:
-        - npm run test
-      node_js:
-        - "lts/carbon"
-        - "lts/dubnium"
-
-    - stage: "Regression Tests Ember"
-      script:
-        - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
-      env: EMBER_TRY_SCENARIO=ember-release
-    - env: EMBER_TRY_SCENARIO=ember-beta
-    - env: EMBER_TRY_SCENARIO=ember-canary
-    - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
-
     - stage: "Release"
+      node_js: stable
       script: skip
       deploy:
         provider: script
@@ -72,9 +64,17 @@ jobs:
         script:
           - npx semantic-release
 
+before_install:
+  - npm config set spin false
+  - npm install -g npm@6
+  - npm --version
+
+script:
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+  - npm run test:node
+
 stages:
-  - "Tests"
-  - "Regression Tests Node"
-  - "Regression Tests Ember"
+  - "Smoke Tests"
+  - test
   - name: "Release"
     if: branch = master
