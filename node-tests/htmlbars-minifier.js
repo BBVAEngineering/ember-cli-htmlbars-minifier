@@ -5,6 +5,17 @@ const assert = require('assert');
 const HTMLBarsMinifier = require('../lib/htmlbars-minifier');
 
 describe('htmlbars-minifier', () => {
+	it('exists', () => {
+		assert.ok(HTMLBarsMinifier, 'the instance exists'); // eslint-disable-line
+	});
+
+	it('implements "baseDir()"', () => {
+		const pluginInstance = new HTMLBarsMinifier('foo');
+
+		assert.ok(typeof pluginInstance.baseDir === 'function', 'baseDir is a function');
+		assert.strictEqual(pluginInstance.baseDir(), process.cwd());
+	});
+
 	it('implements "cacheKeyProcessString()"', () => {
 		const pluginInstance = new HTMLBarsMinifier('foo');
 
@@ -13,7 +24,7 @@ describe('htmlbars-minifier', () => {
 	});
 
 	it('always generates an instance of HTMLBarsMinifier', () => {
-		const result = HTMLBarsMinifier('foo');
+		const result = new HTMLBarsMinifier('foo');
 
 		assert.ok(result instanceof HTMLBarsMinifier);
 	});
