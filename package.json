@@ -33,7 +33,7 @@
     "htmlbars-minifier"
   ],
   "dependencies": {
-    "broccoli-persistent-filter": "^1.4.3",
+    "broccoli-persistent-filter": "^2.2.1",
     "ember-cli-babel": "^7.1.2"
   },
   "devDependencies": {
@@ -43,7 +43,7 @@
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/git": "^7.0.8",
     "babel-eslint": "^10.0.1",
-    "broccoli-asset-rev": "^2.7.0",
+    "broccoli-asset-rev": "^3.0.0",
     "chai": "^4.2.0",
     "check-dependencies": "^1.1.0",
     "commitizen": "^3.0.5",
