@@ -9,7 +9,7 @@ describe('htmlbars-minifier', () => {
 		const pluginInstance = new HTMLBarsMinifier('foo');
 
 		assert.ok(typeof pluginInstance.cacheKeyProcessString === 'function', 'cacheKeyProcessString is a function');
-		assert.strictEqual(pluginInstance.cacheKeyProcessString('a', 'b'), 'a35aea60fe097c885568babb48ee7d1e', 'returns a string');
+		assert.strictEqual(pluginInstance.cacheKeyProcessString('a', 'b'), '0ee7567326a13036b9ad1b853bad44d5', 'returns a string');
 	});
 
 	it('always generates an instance of HTMLBarsMinifier', () => {
