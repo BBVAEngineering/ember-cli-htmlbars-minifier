@@ -23,7 +23,7 @@ module.exports = {
 		registry.add('template', {
 			name: packageName,
 			ext: 'hbs',
-			toTree: (tree) => HtmlbarsMinifier(tree, options)
+			toTree: (tree) => new HtmlbarsMinifier(tree, options)
 		});
 	}
 };
