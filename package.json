@@ -65,7 +65,7 @@
     "ember-try": "~0.2.23",
     "eslint": "^6.0.1",
     "eslint-config-bbva": "^2.0.3",
-    "eslint-plugin-ember": "^6.5.1",
+    "eslint-plugin-ember": "^6.7.1",
     "eslint-plugin-node": "^9.0.1",
     "husky": "^3.0.0",
     "loader.js": "^4.7.0",
