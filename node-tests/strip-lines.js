@@ -44,4 +44,22 @@ describe('stripNewlines', () => {
 			'{{#foo}}bar{{/foo}}'
 		);
 	});
+
+	it('should not join an angle brackets node', () => {
+		const input =
+`<Foo
+	@bar={{qux}}
+	@fuzz=buzz
+>`;
+		const expected =
+`<Foo
+@bar={{qux}}
+@fuzz=buzz
+>`;
+
+		assert.strictEqual(
+			minifier.processString(input),
+			expected
+		);
+	});
 });
