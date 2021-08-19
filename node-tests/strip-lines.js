@@ -62,4 +62,45 @@ describe('stripNewlines', () => {
 			expected
 		);
 	});
+
+	it('should not join an angle brackets with modifier node', () => {
+		const input =
+`<Foo
+	{{modifier 'bleepz' }}
+	@bar=qux
+>`;
+		const expected =
+`<Foo
+{{modifier 'bleepz' }}
+@bar=qux
+>`;
+
+		assert.strictEqual(
+			minifier.processString(input),
+			expected
+		);
+	});
+	it('should not join an angle brackets with modifier and attributes node', () => {
+		const input =
+`<Foo
+@bar={{wow}}
+{{on 'foo'
+  (qwe)
+}}
+@foo={{wow}}
+>`;
+		const expected =
+`<Foo
+@bar={{wow}}
+{{on 'foo'
+(qwe)
+}}
+@foo={{wow}}
+>`;
+
+		assert.strictEqual(
+			minifier.processString(input),
+			expected
+		);
+	});
 });
