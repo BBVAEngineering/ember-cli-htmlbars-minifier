@@ -35,12 +35,15 @@ jobs:
     strategy:
       matrix:
         ember_try_scenario:
-          - ember-lts-2.18
-          - ember-lts-3.4
+          - ember-lts-3.20
+          - ember-lts-3.24
           - ember-release
           - ember-beta
           - ember-canary
           - ember-default-with-jquery
+          - ember-classic
+          - embroider-safe
+          - embroider-optimized
         experimental: [false]
         include:
           - ember_try_scenario: ember-canary

@@ -11,7 +11,9 @@
 
 [![NPM](https://nodei.co/npm/ember-cli-htmlbars-minifier.png?downloads=true&downloadRank=true)](https://nodei.co/npm/ember-cli-htmlbars-minifier/)
 
-Removes all whitespace in htmlbars templates.
+* Ember.js v3.20 or above
+* Ember CLI v3.20 or above
+* Node.js v10 or above
 
 ## Install in ember-cli application
 
