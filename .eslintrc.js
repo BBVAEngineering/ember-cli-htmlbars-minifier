@@ -25,6 +25,7 @@ module.exports = {
       files: [
         '.commitlintrc.js',
         '.eslintrc.js',
+        '.huskyrc.js',
         '.prettierrc.js',
         '.template-lintrc.js',
         'blueprints/*/index.js',
@@ -33,6 +34,8 @@ module.exports = {
         'index.js',
         'testem.js',
         'tests/dummy/config/**/*.js',
+        'node-tests/**',
+        'lib/htmlbars-minifier.js',
       ],
       excludedFiles: [
         'addon/**',
