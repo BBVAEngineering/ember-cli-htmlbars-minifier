@@ -23,7 +23,8 @@
     "test": "npm run test:node && npm run test:ember",
     "test:all": "ember try:each",
     "test:ember": "ember test",
-    "test:node": "nyc --reporter=html --reporter=json --reporter=json-summary --reporter=lcov --report-dir coverage --exclude node-tests --exclude **/config/* npm run mocha"
+    "test:node": "nyc --reporter=html --reporter=json --reporter=json-summary --reporter=lcov --report-dir coverage --exclude node-tests --exclude **/config/* npm run mocha",
+    "test:release": "semantic-release --branches=$(git rev-parse --abbrev-ref HEAD) --dry-run"
   },
   "keywords": [
     "ember-addon",
