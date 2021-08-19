@@ -5,7 +5,6 @@
 [![NPM version](https://badge.fury.io/js/ember-cli-htmlbars-minifier.svg)](https://badge.fury.io/js/ember-cli-htmlbars-minifier)
 [![Dependency Status](https://david-dm.org/BBVAEngineering/ember-cli-htmlbars-minifier.svg)](https://david-dm.org/BBVAEngineering/ember-cli-htmlbars-minifier)
 [![codecov](https://codecov.io/gh/BBVAEngineering/ember-cli-htmlbars-minifier/branch/master/graph/badge.svg)](https://codecov.io/gh/BBVAEngineering/ember-cli-htmlbars-minifier)
-[![Greenkeeper badge](https://badges.greenkeeper.io/BBVAEngineering/ember-cli-htmlbars-minifier.svg)](https://greenkeeper.io/)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-cli-htmlbars-minifier.svg)](https://emberobserver.com/addons/ember-cli-htmlbars-minifier)
 
 ## Information
@@ -39,9 +38,9 @@ Config Option | Description |
 --- | --- |
 |stripIndentation        | Remove any consecutive sets of tabs or spaces from the beginning of each line.
 |removeTrailingSpaces    | Remove any whitespace that may be at the end of each line.
-|removeSpacesAroundTags  | Remove any whitespace that occurs before or after an HTML tag or Handlebars tag 
+|removeSpacesAroundTags  | Remove any whitespace that occurs before or after an HTML tag or Handlebars tag
 |stripNewlines           | Remove all newlines from the template (except those that are inside an open tag, which will be ignored by the HTMLBars/Glimmer parser anyway).
-|coalesceSpaces          | Replace any runs of multiple whitespaces with a single space. 
+|coalesceSpaces          | Replace any runs of multiple whitespaces with a single space.
 
 ## Contributing
 
