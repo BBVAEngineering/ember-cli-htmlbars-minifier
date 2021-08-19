@@ -29,6 +29,7 @@ jobs:
           files: ./coverage/lcov.info
           fail_ci_if_error: true
   regression:
+    if: github.ref != 'refs/heads/master'
     needs: test
     runs-on: ubuntu-latest
     name: Regression test - ${{ matrix.ember_try_scenario }} - Experimental ${{ matrix.experimental }}
@@ -39,7 +40,6 @@ jobs:
           - ember-lts-3.24
           - ember-release
           - ember-beta
-          - ember-canary
           - ember-default-with-jquery
           - ember-classic
           - embroider-safe
@@ -64,7 +64,7 @@ jobs:
         run: yarn ember try:one ${{ matrix.ember_try_scenario }}
   release:
     if: github.ref == 'refs/heads/master'
-    needs: [test, regression]
+    needs: [test]
     runs-on: ubuntu-latest
     name: Release
     steps:
