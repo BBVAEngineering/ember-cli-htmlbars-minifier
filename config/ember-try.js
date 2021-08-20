@@ -3,6 +3,18 @@
 
 const getChannelURL = require('ember-source-channel-url');
 const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
+const embroiderScenariosConfig = {
+  allowedToFail: true,
+  npm: {
+    devDependencies: {
+      'ember-auto-import': '^2.1.0',
+      webpack: '^5.0.0',
+    },
+    ember: {
+      build: 'index.js',
+    },
+  },
+};
 
 module.exports = async function () {
   return {
@@ -76,8 +88,8 @@ module.exports = async function () {
           },
         },
       },
-      embroiderSafe(),
-      embroiderOptimized(),
+      embroiderSafe(embroiderScenariosConfig),
+      embroiderOptimized(embroiderScenariosConfig),
     ],
   };
 };
