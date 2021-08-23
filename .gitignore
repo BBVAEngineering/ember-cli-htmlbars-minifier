@@ -9,16 +9,18 @@
 /node_modules/
 
 # misc
+.DS_Store
 /.env*
+/.pnp*
 /.sass-cache
+/.eslintcache
+/.nyc_output/
 /connect.lock
 /coverage/
 /libpeerconnection.log
 /npm-debug.log*
 /testem.log
 /yarn-error.log
-/tags*
-/.nyc_output
 
 # ember-try
 /.node_modules.ember-try/

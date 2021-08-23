@@ -1,3 +1,9 @@
+{{page-title "Dummy"}}
+
+<h2 id="title">Welcome to Ember</h2>
+
+{{! ------------------- }}
+
 <span id="stripIndentation">
 	foo
 </span>
@@ -9,7 +15,7 @@
 {{! ------------------- }}
 
 <span id="removeSpacesAroundTags-1">
-	{{#each dataForRemoveSpacesAroundTags as |nav|}}
+	{{#each this.dataForRemoveSpacesAroundTags as |nav|}}
 		<a href={{nav.url}}>
 			{{#if nav.test}}
 				{{nav.title}}
@@ -29,11 +35,11 @@
 </span>
 
 <span id="removeSpacesAroundTags-4">
-	Hello{{#unless foo}}      <b>World</b>{{/unless}}
+	Hello{{#unless this.foo}}      <b>World</b>{{/unless}}
 </span>
 
 <span id="removeSpacesAroundTags-5">
-	<b>Hello</b>      {{#unless foo}}World{{/unless}}
+	<b>Hello</b>      {{#unless this.foo}}World{{/unless}}
 </span>
 
 {{! ------------------- }}
@@ -45,7 +51,7 @@
 </span>
 
 <span id="stripNewlines-2">
-	<b>{{#unless foo}}
+	<b>{{#unless this.foo}}
 	Hello{{/unless}}</b>
 </span>
 
