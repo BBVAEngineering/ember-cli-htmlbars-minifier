@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-htmlbars-minifier",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Removes all whitespace in htmlbars templates",
   "main": "index.js",
   "author": "BBVAEngineering",

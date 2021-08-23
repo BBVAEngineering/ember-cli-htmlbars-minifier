@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/BBVAEngineering/ember-cli-htmlbars-minifier/compare/v2.0.0...v2.1.0) (2021-08-23)
+
+
+### Features
+
+* **minifier:** prevent stripNewLines form breaking with angle brackets ([002a72e](https://github.com/BBVAEngineering/ember-cli-htmlbars-minifier/commit/002a72e460a94a4361ad60c1669346450bd656f4))
+
 # [2.0.0](https://github.com/BBVAEngineering/ember-cli-htmlbars-minifier/compare/v1.2.0...v2.0.0) (2019-02-25)
 
 ### Bug Fixes
